@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.2">
+  <zoom_level>10</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>0</x>
+      <y>50</y>
+      <w>370</w>
+      <h>280</h>
+    </coordinates>
+    <panel_attributes>package :: SampleClass
+
+--
+Date members go here
+- indicates private
+- variableName : t/Type
+
+--
+Constructors and methods go here
+- private
++ public
+# protected
+
+- doesNothing() : void
++ start() : void
++ calculateRanking(int, int) : int
++ SampleClass() : constructor</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>380</x>
+      <y>50</y>
+      <w>240</w>
+      <h>20</h>
+    </coordinates>
+    <panel_attributes>Chatbot</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>380</x>
+      <y>80</y>
+      <w>240</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>ChatRunner
+--
+
+--
++ main (String []) : void</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>380</x>
+      <y>210</y>
+      <w>240</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>chat.controller :: ChatController
+
+--
+- display :PopupDisplay
+-chatbot : Chatbot
+--
++ start() : void</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>380</x>
+      <y>300</y>
+      <w>240</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>PopupDisplay</panel_attributes>
+    <additional_attributes/>
+  </element>
+</diagram>
