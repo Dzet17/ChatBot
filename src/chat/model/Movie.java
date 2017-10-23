@@ -1,5 +1,5 @@
 package chat.model;
 
-public class Chat {
+public class Movie {
 
 }
