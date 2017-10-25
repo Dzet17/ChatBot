@@ -2,7 +2,7 @@ package chat.controller;
 
 import java.util.List;
 import java.util.ArrayList;
-import chat.model.Chat;
+import chat.model.Chatbot;
 import chat.view.PopupDisplay;
 
 

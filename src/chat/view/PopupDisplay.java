@@ -11,7 +11,7 @@ public class PopupDisplay
 	public PopupDisplay()
 	{
 		icon = new ImageIcon(getClass().getResource("images/chatbot.png"));
-				windowTitle = "Sample";
+				windowTitle = "ChatBot says";
 	
 	}
 public void displayText(String message)
@@ -27,4 +27,5 @@ public String collectResponse(String question)
 	
 		return answer;
 	}
+
 }
