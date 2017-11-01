@@ -21,7 +21,7 @@ public class Chatbot
 	public Chatbot(String username)
 	{
 		this.movieList = null;
-		this.shoppingList = arrayList<String>();
+		this.shoppingList = new ArrayList<String>();
 		this.cuteAnimalMemes = null;
 		this.currentTime = null;
 		this.questions = null;
@@ -30,8 +30,11 @@ public class Chatbot
 		this.intro = null;
 		this.currentTime = null;
 		this.topics = null;
-		this.verbs = new String [3];
-		this.followUps = null;
+		this.verbs = new String [4];
+		this.followUps = new String [5];
+		
+		buildVerbs();
+		buildShoppingList();
 	}
 	
 	private void buildVerbs()
@@ -71,7 +74,7 @@ public class Chatbot
 		return null;
 	}
 	
-	public string lengthChecker(String input)
+	public String lengthChecker(String input)
 	{
 		boolean validLength = false;
 		
@@ -79,6 +82,7 @@ public class Chatbot
 		{
 			validLength = true;
 		}
+		return input;
 	}
 	
 	public boolean htmlTagChecker(String input)

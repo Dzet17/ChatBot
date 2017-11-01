@@ -55,7 +55,7 @@ public class ChatbotTest
 	}
 
 	@Test
-	public  testLengthChecker()
+	public void testLengthChecker()
 	{
 		assertTrue("Supplying null should not break the application or return true", !testedChatbot.lengthChecker(null));
 		assertFalse("A blank string should not return true", testedChatbot.lengthChecker(""));

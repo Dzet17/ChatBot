@@ -17,7 +17,7 @@ public class MovieTest
 	@Before
 	public void setUp() throws Exception
 	{
-		testedMovie = new Movie("");
+		testedMovie = new Movie("The Lonely Adventure");
 	}
 
 	@After
