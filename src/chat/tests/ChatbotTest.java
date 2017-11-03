@@ -59,8 +59,9 @@ public class ChatbotTest
 	{
 		assertTrue("Supplying null should not break the application or return true", !testedChatbot.lengthChecker(null));
 		assertFalse("A blank string should not return true", testedChatbot.lengthChecker(""));
-		assertTrue("Text greater than 2 characters should return true", testedChatbot.lengthChecker("jdsfhjka hjkfdfl jsdhfjk ahk sj"));
+		assertFalse("Text greater than 2 characters should return true", testedChatbot.lengthChecker("jdsfhjka hjkfdfl jsdhfjk ahk sj"));
 	}
+		
 
 	@Test
 	public void testHtmlTagChecker()
@@ -168,7 +169,7 @@ public class ChatbotTest
 			{
 				otterCount += 1;
 			}
-			if (cute.toUpperCase().contains("floofer"))
+			if (cute.toUpperCase().contains("FLOOFER"))
 			{
 				flooferCount += 1;
 			}
