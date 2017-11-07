@@ -132,7 +132,9 @@ public class Chatbot
 
 	public boolean shoppingListChecker(String shoppingItem)
 	{
-		return false;
+		for (String i:shoppingList) 
+		{
+			if()
 	}
 
 	public boolean movieTitleChecker(String title)
