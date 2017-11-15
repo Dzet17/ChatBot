@@ -12,10 +12,13 @@ public class ChatbotController
 	public ChatbotController()
 	{
 		chatbot = new Chatbot("Dylan Zettler");
+		//View initialized after Model
 		display = new PopupDisplay();
+		appFrame =new ChatFrame(this);
 	}
 	
 	public void start()
+
 	{
 		String response = display.collectResponse("What do you want to talk about");
 		
@@ -25,6 +28,8 @@ public class ChatbotController
 			response = display.collectResponse(response);
 		}
 	}
+
+	public String interactWithChatbot(String input)
 	
 	private String popupChat(String chat)
 	{
