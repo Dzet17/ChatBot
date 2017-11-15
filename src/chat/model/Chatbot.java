@@ -72,6 +72,11 @@ public class Chatbot
 
 	}
 
+	/**
+	 * Takes the user's text input and processes it and returns a string
+	 * @param input The user's supplied text
+	 * @return The combined input and response
+	 */
 	public String processConversation(String input)
 	{
 		String chatbotResponse = "";
@@ -81,6 +86,10 @@ public class Chatbot
 		return chatbotResponse;
 	}
 
+	/**
+	 * Builds a random response using the chatbot's sentence part arrays.
+	 * @return The random response of a chatbot.
+	 */
 	private String buildChatbotResponse()
 	{
 		String response = "I ";
@@ -93,10 +102,21 @@ public class Chatbot
 
 		random = (int) (Math.random() * questions.length);
 		response += questions[random];
-
+		
+		if (random % 2 == 0)
+		{
+		random = (int) (Math.random() * movieList.size());
+		response += "\n" + movieList.get(random).getTitle() + " is a great movie!";
+		}
+		
 		return response;
 	}
-
+	
+	/**
+	 * Checks the length of the string, so chatbot can respond accordingly
+	 * @param input the user's supplied text
+	 * @return A similarly lengthened response
+	 */
 	public boolean lengthChecker(String input)
 	{
 		boolean validLength = false;
@@ -130,11 +150,18 @@ public class Chatbot
 		return false;
 	}
 
+	/**
+	 * Checks if the shoppingList is true, making the chatbot able to respond
+	 * @param shoppingItem Adds these keywords for direct response
+	 * @return A premade response for the keyword
+	 */
 	public boolean shoppingListChecker(String shoppingItem)
 	{
 		for (String i:shoppingList) 
 		{
-			if()
+			if(shoppingItem.indexOf(i) >= 0);	
+		}
+		return true;
 	}
 
 	public boolean movieTitleChecker(String title)
@@ -146,16 +173,19 @@ public class Chatbot
 	{
 		return false;
 	}
-
+	
+/**
+ * The 
+ * @param exitString
+ * @return
+ */
 	public boolean quitChecker(String exitString)
 	{
 		if (exitString.equalsIgnoreCase("quit"))
-		{
-			return true;
-		}
-		return false;
+	{
+		return true;
 	}
-
+	
 	public boolean keyboardMashChecker(String sample)
 	{
 		return false;

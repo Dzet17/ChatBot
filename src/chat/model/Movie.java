@@ -12,19 +12,15 @@ public class Movie
 	private LocalDate releaseDate;
 	private double starScore;
 	
-	public Movie(String name)
+	public Movie(String title)
 	{
-		this.title = "";
-		this.genre = null;
-		this.ratingMPAA = null;
-		this.review = null;
-		this.length = -99;
+		this.title = "Title: " + title;
+		this.genre = "Adventure";
+		this.ratingMPAA = "PG-13";
+		this.review = "This movie is really blah";
+		this.length = 120;
 		this.releaseDate = null;
-		this.starScore = Double.NaN;
-	}
-
-	public Movie() {
-		// TODO Auto-generated constructor stub
+		this.starScore = 9.99;
 	}
 
 	public String getTitle()
@@ -55,7 +51,7 @@ public class Movie
 
 	public LocalDate getReleaseDate()
 	{
-		return releaseDate;
+		testedMovie.getReleaseDate());
 	}
 
 	public double getStarScore()
@@ -65,6 +61,7 @@ public class Movie
 
 	public void setTitle(String title)
 	{
+		this.title = title;
 	}
 
 	public void setGenre(String genre)
