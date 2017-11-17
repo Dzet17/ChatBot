@@ -20,7 +20,7 @@ public class Chatbot
 
 	public Chatbot(String username)
 	{
-		this.movieList = null;
+		this.movieList = new ArrayList<Movie>();
 		this.shoppingList = new ArrayList<String>();
 		this.cuteAnimalMemes = null;
 		this.currentTime = null;
@@ -50,7 +50,7 @@ public class Chatbot
 
 	private void buildMovieList()
 	{
-
+		movieList.add(new Movie("Spiderhuman"));
 	}
 
 	private void buildShoppingList()

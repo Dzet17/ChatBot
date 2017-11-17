@@ -5,10 +5,10 @@ import javax.swing.JButton;
 import javax.swing.JTextField;
 import javax.swing.JTextArea;
 import javax.swing.SpringLayout;
-
 import java.awt.Color;
-
 import chat.controller.ChatbotController;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class ChatPanel extends JPanel
 {
@@ -50,6 +50,8 @@ public class ChatPanel extends JPanel
 		this.add(chatButton);
 		this.add(inputField);
 		this.add(chatArea);
+		chatArea.setEnabled(false);
+		chatArea.setEditable(false);
 	}
 	private void setupLayout()
 	{
@@ -57,6 +59,15 @@ public class ChatPanel extends JPanel
 	}
 	private void setupListeners()
 	{
-		
+		chatButton.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent click)
+			{
+				String userText = inputField.getText();
+				String displayText = appController.interactWithChatbot(userText);
+				chatArea.append(displayText);
+				inputField.setText("");
+			}
+		});
 	}
 }

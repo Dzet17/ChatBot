@@ -2,6 +2,11 @@ package chat.model;
 
 import java.time.LocalDate;
 
+/**
+ * Class created of list of Movie descriptions
+ * @author dzet4165
+ *Will describe a movie thoroughly when finished
+ */
 public class Movie
 {
 	private String title;
@@ -51,7 +56,7 @@ public class Movie
 
 	public LocalDate getReleaseDate()
 	{
-		testedMovie.getReleaseDate());
+		return releaseDate;
 	}
 
 	public double getStarScore()

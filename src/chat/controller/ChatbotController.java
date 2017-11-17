@@ -20,17 +20,23 @@ public class ChatbotController
 	public void start()
 
 	{
-		String response = display.collectResponse("What do you want to talk about");
-		
-//		while (chatbot.lengthChecker(response) && !chatbot.quitChecker(response))
-//		{
-//			response = popupChat(response);
-//			response = display.collectResponse(response);
-//		}
+		display.displayText("Welcome to Chatbot");
 	}
 
 	public String interactWithChatbot(String input)
+	{
+		String chatbotSays = "";
+		
+		chatbotSays += chatbot.processConversation(input);
+		
+		return chatbotSays;
+	}
 	
+	/**
+	 * Uses the processConversation constructor to configure what you have input
+	 * @param chat
+	 * @return A somewhat reasonable response to what you said
+	 */
 	private String popupChat(String chat)
 	{
 		String chatbotSays = ""; //Assigns a valid value to a variable that will be returned for the method.
@@ -41,9 +47,15 @@ public class ChatbotController
 	}
 	
 	public Chatbot getChatbot()
-	
+	{
+		return null;
+	}
 	public PopupDisplay getDisplay()
-	
+	{
+		return null;
+	}	
 	public ChatFrame getChatFrame()
+	{
+		return null;
 	}
 }
