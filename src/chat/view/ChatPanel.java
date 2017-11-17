@@ -6,6 +6,8 @@ import javax.swing.JTextField;
 import javax.swing.JTextArea;
 import javax.swing.SpringLayout;
 
+import java.awt.Color;
+
 import chat.controller.ChatbotController;
 
 public class ChatPanel extends JPanel
@@ -25,7 +27,16 @@ public class ChatPanel extends JPanel
 		chatButton = new JButton("chat");
 		chatArea = new JTextArea(10, 20);
 		inputField = new JTextField();
-		appLayout = new SpringLayout();
+		baseLayout = new SpringLayout();
+		baseLayout.putConstraint(SpringLayout.WEST, inputField, 21, SpringLayout.WEST, this);
+		baseLayout.putConstraint(SpringLayout.EAST, chatArea, -185, SpringLayout.EAST, this);
+		baseLayout.putConstraint(SpringLayout.WEST, chatButton, 9, SpringLayout.EAST, chatArea);
+		baseLayout.putConstraint(SpringLayout.SOUTH, chatButton, 0, SpringLayout.SOUTH, chatArea);
+		baseLayout.putConstraint(SpringLayout.EAST, inputField, -10, SpringLayout.EAST, this);
+		baseLayout.putConstraint(SpringLayout.NORTH, chatArea, -65, SpringLayout.SOUTH, this);
+		baseLayout.putConstraint(SpringLayout.SOUTH, chatArea, -36, SpringLayout.SOUTH, this);
+		baseLayout.putConstraint(SpringLayout.NORTH, inputField, 10, SpringLayout.NORTH, this);
+		baseLayout.putConstraint(SpringLayout.SOUTH, inputField, 169, SpringLayout.NORTH, this);
 		
 		setupPanel();
 		setupLayout();
@@ -34,7 +45,11 @@ public class ChatPanel extends JPanel
 	
 	private void setupPanel()
 	{
-		
+		this.setBackground(Color.CYAN);
+		this.setLayout(baseLayout);
+		this.add(chatButton);
+		this.add(inputField);
+		this.add(chatArea);
 	}
 	private void setupLayout()
 	{
