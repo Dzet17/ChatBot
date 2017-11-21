@@ -27,9 +27,20 @@ public class ChatbotController
 	{
 		String chatbotSays = "";
 		
+		if(chatbot.quitChecker(input))
+		{
+			
+		}
+		
 		chatbotSays += chatbot.processConversation(input);
 		
 		return chatbotSays;
+	}
+	
+	private void close()
+	{
+		display.displayText("Goodbye");
+		System.exit(0);
 	}
 	
 	/**

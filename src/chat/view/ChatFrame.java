@@ -24,5 +24,4 @@ public class ChatFrame
 		this.setResizable(false);
 		this.setVisible(true);
 	}
-
 }

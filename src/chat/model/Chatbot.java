@@ -23,7 +23,6 @@ public class Chatbot
 		this.movieList = new ArrayList<Movie>();
 		this.shoppingList = new ArrayList<String>();
 		this.cuteAnimalMemes = null;
-		this.currentTime = null;
 		this.questions = new String[10];
 		this.username = username;
 		this.content = null;
@@ -35,7 +34,7 @@ public class Chatbot
 
 		buildVerbs();
 		buildShoppingList();
-		buildFollowups();
+		buildFollowUps();
 		buildQuestions();
 		buildTopics();
 	}
@@ -182,8 +181,10 @@ public class Chatbot
 	public boolean quitChecker(String exitString)
 	{
 		if (exitString.equalsIgnoreCase("quit"))
-	{
-		return true;
+		{
+			return true;
+		}
+		return false;
 	}
 	
 	public boolean keyboardMashChecker(String sample)
