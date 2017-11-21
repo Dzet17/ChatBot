@@ -63,7 +63,7 @@ public class Chatbot
 
 	private void buildCuteAnimals()
 	{
-
+		return cuteAnimalsList;
 	}
 
 	private void buildQuestions()

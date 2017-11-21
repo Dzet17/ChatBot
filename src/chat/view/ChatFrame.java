@@ -3,7 +3,7 @@ package chat.view;
 import javax.swing.JFrame;
 import chat.controller.ChatbotController;
 
-public class ChatFrame 
+public class ChatFrame extends JFrame
 {
 	private ChatbotController appController;
 	private ChatPanel appPanel;
@@ -23,5 +23,10 @@ public class ChatFrame
 		this.setContentPane(appPanel);
 		this.setResizable(false);
 		this.setVisible(true);
+	}
+
+	public Object getBaseController()
+	{
+		return false;
 	}
 }
