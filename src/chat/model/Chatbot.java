@@ -107,8 +107,6 @@ public class Chatbot
 		random = (int) (Math.random() * movieList.size());
 		response += "\n" + movieList.get(random).getTitle() + " is a great movie!";
 		}
-		
-		return response;
 	
 		if (random % 2 == 0)
 		{
@@ -133,8 +131,10 @@ public class Chatbot
 			response += followUps[3] + "\n";
 			break;
 		}
-			
-		}
+		
+		
+		return response;
+	}
 	
 	/**
 	 * Checks the length of the string, so chatbot can respond accordingly
@@ -156,7 +156,7 @@ public class Chatbot
 
 	public boolean htmlTagChecker(String input)
 	{
-		return false;
+		
 	}
 
 	public boolean userNameChecker(String input)

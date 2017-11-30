@@ -22,6 +22,8 @@ public class ChatPanel extends JPanel
 	private JTextField inputField;
 	private JTextArea chatArea;
 	private SpringLayout baseLayout;
+	private JButton checkerButton;
+	private JLabel infoLabel;
 	
 	public ChatPanel(ChatbotController appController)
 	{
@@ -32,16 +34,9 @@ public class ChatPanel extends JPanel
 		chatButton = new JButton("chat");
 		chatArea = new JTextArea(10, 20);
 		inputField = new JTextField();
+		infoLabel = new JLabel("Type to chat with the ChatBot");
 		baseLayout = new SpringLayout();
-		baseLayout.putConstraint(SpringLayout.WEST, inputField, 21, SpringLayout.WEST, this);
-		baseLayout.putConstraint(SpringLayout.EAST, chatArea, -185, SpringLayout.EAST, this);
-		baseLayout.putConstraint(SpringLayout.WEST, chatButton, 9, SpringLayout.EAST, chatArea);
-		baseLayout.putConstraint(SpringLayout.SOUTH, chatButton, 0, SpringLayout.SOUTH, chatArea);
-		baseLayout.putConstraint(SpringLayout.EAST, inputField, -10, SpringLayout.EAST, this);
-		baseLayout.putConstraint(SpringLayout.NORTH, chatArea, -65, SpringLayout.SOUTH, this);
-		baseLayout.putConstraint(SpringLayout.SOUTH, chatArea, -36, SpringLayout.SOUTH, this);
-		baseLayout.putConstraint(SpringLayout.NORTH, inputField, 10, SpringLayout.NORTH, this);
-		baseLayout.putConstraint(SpringLayout.SOUTH, inputField, 169, SpringLayout.NORTH, this);
+		baseLayout = new SpringLayout();
 		
 		setupPanel();
 		setupLayout();
@@ -60,7 +55,16 @@ public class ChatPanel extends JPanel
 	}
 	private void setupLayout()
 	{
-		
+		baseLayout = new SpringLayout();
+		baseLayout.putConstraint(SpringLayout.NORTH, chatArea, 66, SpringLayout.SOUTH, inputField);
+		baseLayout.putConstraint(SpringLayout.SOUTH, chatArea, -36, SpringLayout.SOUTH, this);
+		baseLayout.putConstraint(SpringLayout.SOUTH, chatButton, 0, SpringLayout.SOUTH, chatArea);
+		baseLayout.putConstraint(SpringLayout.EAST, chatButton, 0, SpringLayout.EAST, inputField);
+		baseLayout.putConstraint(SpringLayout.WEST, chatArea, 21, SpringLayout.WEST, this);
+		baseLayout.putConstraint(SpringLayout.NORTH, inputField, 10, SpringLayout.NORTH, this);
+		baseLayout.putConstraint(SpringLayout.WEST, inputField, 0, SpringLayout.WEST, chatArea);
+		baseLayout.putConstraint(SpringLayout.SOUTH, inputField, 169, SpringLayout.NORTH, this);
+		baseLayout.putConstraint(SpringLayout.EAST, inputField, -10, SpringLayout.EAST, this);
 	}
 	private void setupListeners()
 	{
