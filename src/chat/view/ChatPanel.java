@@ -9,6 +9,8 @@ import java.awt.Color;
 import chat.controller.ChatbotController;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.swing.JScrollPane;
+import javax.swing.JLabel;
 
 /**
  * The JPanel subclass for the chatbot project
@@ -22,8 +24,10 @@ public class ChatPanel extends JPanel
 	private JTextField inputField;
 	private JTextArea chatArea;
 	private SpringLayout baseLayout;
+	private SpringLayout baseLayout_1;
 	private JButton checkerButton;
 	private JLabel infoLabel;
+	private JScrollPane chatScrollPane;
 	
 	public ChatPanel(ChatbotController appController)
 	{
@@ -32,35 +36,55 @@ public class ChatPanel extends JPanel
 		
 		//Initialize GUI data members
 		chatButton = new JButton("chat");
-		chatArea = new JTextArea(10, 20);
 		inputField = new JTextField();
 		infoLabel = new JLabel("Type to chat with the ChatBot");
 		baseLayout = new SpringLayout();
-		baseLayout = new SpringLayout();
+		baseLayout_1 = new SpringLayout();
+		baseLayout_1.putConstraint(SpringLayout.WEST, inputField, 28, SpringLayout.WEST, this);
+		baseLayout_1.putConstraint(SpringLayout.EAST, inputField, -412, SpringLayout.EAST, this);
+		baseLayout_1.putConstraint(SpringLayout.WEST, chatButton, 38, SpringLayout.EAST, infoLabel);
+		baseLayout_1.putConstraint(SpringLayout.NORTH, infoLabel, 5, SpringLayout.NORTH, chatButton);
+		baseLayout_1.putConstraint(SpringLayout.WEST, infoLabel, 11, SpringLayout.EAST, inputField);
+		baseLayout_1.putConstraint(SpringLayout.SOUTH, chatButton, -41, SpringLayout.SOUTH, this);
+		baseLayout_1.putConstraint(SpringLayout.NORTH, inputField, 0, SpringLayout.NORTH, chatButton);
+		chatScrollPane = new JScrollPane();
+		checkerButton = new JButton("Check contents");
 		
+		setupScrollPane();
 		setupPanel();
 		setupLayout();
 		setupListeners();
 	}
 	
+	private void setupScrollPane()
+	{
+		chatScrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
+		chatScrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);	
+	}
+
 	private void setupPanel()
 	{
 		this.setBackground(Color.CYAN);
-		this.setLayout(baseLayout);
+		this.setLayout(baseLayout_1);
 		this.add(chatButton);
 		this.add(inputField);
-		this.add(chatArea);
+		this.add(infoLabel);
+		this.add(chatScrollPane);
+		chatArea = new JTextArea(10, 20);
+		baseLayout_1.putConstraint(SpringLayout.NORTH, chatArea, 20, SpringLayout.NORTH, this);
+		baseLayout_1.putConstraint(SpringLayout.WEST, chatArea, 48, SpringLayout.WEST, this);
+		add(chatArea);
 		chatArea.setEnabled(false);
 		chatArea.setEditable(false);
 	}
 	private void setupLayout()
 	{
 		baseLayout = new SpringLayout();
-		baseLayout.putConstraint(SpringLayout.NORTH, chatArea, 66, SpringLayout.SOUTH, inputField);
-		baseLayout.putConstraint(SpringLayout.SOUTH, chatArea, -36, SpringLayout.SOUTH, this);
+		baseLayout.putConstraint(SpringLayout.NORTH, chatScrollPane, 66, SpringLayout.SOUTH, inputField);
+		baseLayout.putConstraint(SpringLayout.SOUTH, chatScrollPane, -36, SpringLayout.SOUTH, this);
 		baseLayout.putConstraint(SpringLayout.SOUTH, chatButton, 0, SpringLayout.SOUTH, chatArea);
 		baseLayout.putConstraint(SpringLayout.EAST, chatButton, 0, SpringLayout.EAST, inputField);
-		baseLayout.putConstraint(SpringLayout.WEST, chatArea, 21, SpringLayout.WEST, this);
+		baseLayout.putConstraint(SpringLayout.WEST, chatScrollPane, 21, SpringLayout.WEST, this);
 		baseLayout.putConstraint(SpringLayout.NORTH, inputField, 10, SpringLayout.NORTH, this);
 		baseLayout.putConstraint(SpringLayout.WEST, inputField, 0, SpringLayout.WEST, chatArea);
 		baseLayout.putConstraint(SpringLayout.SOUTH, inputField, 169, SpringLayout.NORTH, this);

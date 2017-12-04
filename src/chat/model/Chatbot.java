@@ -34,9 +34,9 @@ public class Chatbot
 
 		buildVerbs();
 		buildShoppingList();
-		buildFollowUps();
+		getFollowUps();
 		buildQuestions();
-		buildTopics();
+		getTopics();
 	}
 
 	private void buildVerbs()
