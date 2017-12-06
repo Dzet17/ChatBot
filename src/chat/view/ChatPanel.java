@@ -40,14 +40,17 @@ public class ChatPanel extends JPanel
 		infoLabel = new JLabel("Type to chat with the ChatBot");
 		baseLayout = new SpringLayout();
 		baseLayout_1 = new SpringLayout();
-		baseLayout_1.putConstraint(SpringLayout.WEST, inputField, 28, SpringLayout.WEST, this);
-		baseLayout_1.putConstraint(SpringLayout.EAST, inputField, -412, SpringLayout.EAST, this);
-		baseLayout_1.putConstraint(SpringLayout.WEST, chatButton, 38, SpringLayout.EAST, infoLabel);
-		baseLayout_1.putConstraint(SpringLayout.NORTH, infoLabel, 5, SpringLayout.NORTH, chatButton);
-		baseLayout_1.putConstraint(SpringLayout.WEST, infoLabel, 11, SpringLayout.EAST, inputField);
-		baseLayout_1.putConstraint(SpringLayout.SOUTH, chatButton, -41, SpringLayout.SOUTH, this);
-		baseLayout_1.putConstraint(SpringLayout.NORTH, inputField, 0, SpringLayout.NORTH, chatButton);
+		baseLayout_1.putConstraint(SpringLayout.NORTH, inputField, 245, SpringLayout.NORTH, this);
+		baseLayout_1.putConstraint(SpringLayout.WEST, inputField, 49, SpringLayout.WEST, this);
+		baseLayout_1.putConstraint(SpringLayout.EAST, inputField, -215, SpringLayout.EAST, this);
+		baseLayout_1.putConstraint(SpringLayout.SOUTH, infoLabel, -6, SpringLayout.NORTH, inputField);
+		baseLayout_1.putConstraint(SpringLayout.EAST, infoLabel, 0, SpringLayout.EAST, inputField);
+		baseLayout_1.putConstraint(SpringLayout.NORTH, chatButton, 0, SpringLayout.NORTH, inputField);
+		baseLayout_1.putConstraint(SpringLayout.WEST, chatButton, 30, SpringLayout.EAST, inputField);
 		chatScrollPane = new JScrollPane();
+		baseLayout_1.putConstraint(SpringLayout.NORTH, chatScrollPane, -77, SpringLayout.SOUTH, this);
+		baseLayout_1.putConstraint(SpringLayout.WEST, chatScrollPane, 8, SpringLayout.WEST, chatButton);
+		baseLayout_1.putConstraint(SpringLayout.SOUTH, chatScrollPane, -6, SpringLayout.NORTH, chatButton);
 		checkerButton = new JButton("Check contents");
 		
 		setupScrollPane();
@@ -71,8 +74,11 @@ public class ChatPanel extends JPanel
 		this.add(infoLabel);
 		this.add(chatScrollPane);
 		chatArea = new JTextArea(10, 20);
+		baseLayout_1.putConstraint(SpringLayout.EAST, chatScrollPane, 2, SpringLayout.EAST, chatArea);
 		baseLayout_1.putConstraint(SpringLayout.NORTH, chatArea, 20, SpringLayout.NORTH, this);
 		baseLayout_1.putConstraint(SpringLayout.WEST, chatArea, 48, SpringLayout.WEST, this);
+		baseLayout_1.putConstraint(SpringLayout.SOUTH, chatArea, 204, SpringLayout.NORTH, this);
+		baseLayout_1.putConstraint(SpringLayout.EAST, chatArea, 327, SpringLayout.WEST, this);
 		add(chatArea);
 		chatArea.setEnabled(false);
 		chatArea.setEditable(false);

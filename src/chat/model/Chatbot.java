@@ -27,7 +27,7 @@ public class Chatbot
 		this.username = username;
 		this.content = null;
 		this.intro = null;
-		this.currentTime = null;
+		this.currentTime = LocalTime.now();
 		this.topics = new String[7];
 		this.verbs = new String[4];
 		this.followUps = new String[5];
@@ -37,6 +37,7 @@ public class Chatbot
 		getFollowUps();
 		buildQuestions();
 		getTopics();
+		buildMovieList();
 	}
 
 	private void buildVerbs()
@@ -63,7 +64,7 @@ public class Chatbot
 
 	private void buildCuteAnimals()
 	{
-		return 
+		
 	}
 
 	private void buildQuestions()
@@ -79,7 +80,9 @@ public class Chatbot
 	public String processConversation(String input)
 	{
 		String chatbotResponse = "";
+		chatbotResponse += currentTime.getHour() + ":" + currentTime.getMinute() + " ";
 		chatbotResponse += "You said:" + "\n" + input + "\n";
+		
 		chatbotResponse += buildChatbotResponse();
 
 		return chatbotResponse;
@@ -154,12 +157,12 @@ public class Chatbot
 		return validLength;
 	}
 
-	public boolean inputHTMLChecker(String input)
+	public boolean htmlTagChecker(String input)
 	{
 			boolean containsHTML = false;
 			if(input == null || !input.contains("<"))
 			{
-				return containsHTML;
+				
 			}
 			int firstOpen = input.indexOf("<");
 			int firstClose = input.indexOf(">",firstOpen);
@@ -184,6 +187,9 @@ public class Chatbot
 				//Others
 				tagText = input.substring(firstOpen + 1, firstClose).toLowerCase();
 				secondOpen = input.toLowerCase().indexOf("</" + tagText, firstClose);
+				
+			return containsHTML;
+				
 	}
 
 	public boolean userNameChecker(String input)
