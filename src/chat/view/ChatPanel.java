@@ -1,6 +1,7 @@
 package chat.view;
 
 import javax.swing.JPanel;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JTextField;
 import javax.swing.JTextArea;
@@ -21,6 +22,10 @@ public class ChatPanel extends JPanel
 {
 	private ChatbotController appController;
 	private JButton chatButton;
+	private JButton searchButton;
+	private JButton saveButton;
+	private JButton loadButton;
+	private JButton tweetButton;
 	private JTextField inputField;
 	private JTextArea chatArea;
 	private SpringLayout baseLayout;
@@ -28,14 +33,22 @@ public class ChatPanel extends JPanel
 	private JButton checkerButton;
 	private JLabel infoLabel;
 	private JScrollPane chatScrollPane;
-	
+	/**
+	 * Creates the design for the Chatbot
+	 * @param appController
+	 */
 	public ChatPanel(ChatbotController appController)
 	{
 		super();
 		this.appController = appController;
 		
 		//Initialize GUI data members
-		chatButton = new JButton("chat");
+		chatButton = new JButton("chat", new ImageIcon(getClass().getResource("/chat/view/images/chatBot.png")));
+		loadButton = new JButton("load", new ImageIcon(getClass().getResource("/chat/view/images/Loading gif.png")));
+		saveButton = new JButton("save", new ImageIcon(getClass().getResource("/chat/view/images/Save Image.ico")));
+		tweetButton = new JButton("tweet", new ImageIcon(getClass().getResource("/chat/view/images/Tweet Image.png")));
+		searchButton = new JButton("search", new ImageIcon(getClass().getResource("/chat/view/images/Search Image.png")));
+		chatArea = new JTextArea(10, 25);
 		inputField = new JTextField();
 		infoLabel = new JLabel("Type to chat with the ChatBot");
 		baseLayout = new SpringLayout();
@@ -48,9 +61,10 @@ public class ChatPanel extends JPanel
 		baseLayout_1.putConstraint(SpringLayout.NORTH, chatButton, 0, SpringLayout.NORTH, inputField);
 		baseLayout_1.putConstraint(SpringLayout.WEST, chatButton, 30, SpringLayout.EAST, inputField);
 		chatScrollPane = new JScrollPane();
-		baseLayout_1.putConstraint(SpringLayout.NORTH, chatScrollPane, -77, SpringLayout.SOUTH, this);
-		baseLayout_1.putConstraint(SpringLayout.WEST, chatScrollPane, 8, SpringLayout.WEST, chatButton);
+		baseLayout_1.putConstraint(SpringLayout.NORTH, chatScrollPane, 0, SpringLayout.NORTH, infoLabel);
+		baseLayout_1.putConstraint(SpringLayout.WEST, chatScrollPane, 0, SpringLayout.WEST, chatButton);
 		baseLayout_1.putConstraint(SpringLayout.SOUTH, chatScrollPane, -6, SpringLayout.NORTH, chatButton);
+		baseLayout_1.putConstraint(SpringLayout.EAST, chatScrollPane, 0, SpringLayout.EAST, chatButton);
 		checkerButton = new JButton("Check contents");
 		
 		setupScrollPane();
@@ -64,7 +78,9 @@ public class ChatPanel extends JPanel
 		chatScrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
 		chatScrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);	
 	}
-
+/**
+ * Created the design how I wanted it to look and be organized
+ */
 	private void setupPanel()
 	{
 		this.setBackground(Color.CYAN);
@@ -74,7 +90,6 @@ public class ChatPanel extends JPanel
 		this.add(infoLabel);
 		this.add(chatScrollPane);
 		chatArea = new JTextArea(10, 20);
-		baseLayout_1.putConstraint(SpringLayout.EAST, chatScrollPane, 2, SpringLayout.EAST, chatArea);
 		baseLayout_1.putConstraint(SpringLayout.NORTH, chatArea, 20, SpringLayout.NORTH, this);
 		baseLayout_1.putConstraint(SpringLayout.WEST, chatArea, 48, SpringLayout.WEST, this);
 		baseLayout_1.putConstraint(SpringLayout.SOUTH, chatArea, 204, SpringLayout.NORTH, this);

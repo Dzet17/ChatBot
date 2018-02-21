@@ -4,7 +4,7 @@ import java.time.LocalDate;
 
 /**
  * Class created of list of Movie descriptions
- * @author dzet4165
+ * @author Dylan Zettler
  *Will describe a movie thoroughly when finished
  */
 public class Movie
@@ -51,7 +51,7 @@ public class Movie
 
 	public int getLength()
 	{
-		return -99999999;
+		return -999999;
 	}
 
 	public LocalDate getReleaseDate()

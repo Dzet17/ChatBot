@@ -16,7 +16,9 @@ public class ChatbotController
 		display = new PopupDisplay();
 		appFrame =new ChatFrame(this);
 	}
-	
+	/**
+	 * starts the program with an introduction popup
+	 */
 	public void start()
 
 	{
